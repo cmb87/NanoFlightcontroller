@@ -192,7 +192,7 @@
       //#define AK8975
       //#define MAG3110
       // TEST PURPOSES
-      //#define QMC5883
+      #define QMC5883
       
       /* Sonar */ // for visualization purpose currently - no control code behind
       //#define SRF02 // use the Devantech SRF i2c sensors
@@ -208,10 +208,15 @@
       //#define FORCE_GYRO_ORIENTATION(X, Y, Z) {imu.gyroADC[ROLL] =   X; imu.gyroADC[PITCH] = -Y; imu.gyroADC[YAW] =   -Z;}
       //#define FORCE_MAG_ORIENTATION(X, Y, Z)  {imu.magADC[ROLL]  =   -X; imu.magADC[PITCH]  =  -Y; imu.magADC[YAW]  = -Z;}
 
-      //#define FORCE_ACC_ORIENTATION(X, Y, Z)  {imu.accADC[ROLL]  =  -X; imu.accADC[PITCH]  =  Y; imu.accADC[YAW]  =   -Z;}
-      //#define FORCE_GYRO_ORIENTATION(X, Y, Z) {imu.gyroADC[ROLL] =   X; imu.gyroADC[PITCH] = -Y; imu.gyroADC[YAW] =   -Z;}
-      //#define FORCE_MAG_ORIENTATION(X, Y, Z)  {imu.magADC[ROLL]  =   -X; imu.magADC[PITCH]  =  -Y; imu.magADC[YAW]  = -Z;}
-      
+      // 200403 BEST WORKING SETTTINGS SO FAR
+      #define ACC_ORIENTATION(X, Y, Z) {imu.accADC[ROLL] =  X; imu.accADC[PITCH] =  -Y; imu.accADC[YAW] = -Z;}
+      #define GYRO_ORIENTATION(X, Y, Z) {imu.gyroADC[ROLL] = -X; imu.gyroADC[PITCH] = -Y; imu.gyroADC[YAW] = -Z;}
+      #define FORCE_MAG_ORIENTATION(X, Y, Z)  {imu.magADC[ROLL]  =   -X; imu.magADC[PITCH]  =  -Y; imu.magADC[YAW]  = -Z;}
+
+//      #define FORCE_ACC_ORIENTATION(X, Y, Z)  {imu.accADC[ROLL]  =  -X; imu.accADC[PITCH]  =  Y; imu.accADC[YAW]  =   -Z;}
+//      #define FORCE_GYRO_ORIENTATION(X, Y, Z) {imu.gyroADC[ROLL] =   X; imu.gyroADC[PITCH] = -Y; imu.gyroADC[YAW] =   -Z;}
+//      #define FORCE_MAG_ORIENTATION(X, Y, Z)  {imu.magADC[ROLL]  =   -X; imu.magADC[PITCH]  =  -Y; imu.magADC[YAW]  = -Z;}
+//      
       /* Board orientation shift */
       /* If you have frame designed only for + mode and you cannot rotate FC phisycally for flying in X mode (or vice versa)
        * you can use one of of this options for virtual sensors rotation by 45 deegres, then set type of multicopter according to flight mode.
@@ -233,8 +238,8 @@
     #define PID_CONTROLLER 1
 
     /* NEW: not used anymore for servo coptertypes  <== NEEDS FIXING - MOVE TO WIKI */
-    #define YAW_DIRECTION 1
-    //#define YAW_DIRECTION -1 // if you want to reverse the yaw correction direction
+    //#define YAW_DIRECTION 1
+    #define YAW_DIRECTION -1 // if you want to reverse the yaw correction direction
 
     #define ONLYARMWHENFLAT //prevent the copter from arming when the copter is tilted
 
