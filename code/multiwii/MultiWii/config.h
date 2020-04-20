@@ -204,19 +204,12 @@
       //#define ADCACC
 
       /* enforce your individual sensor orientation - even overrides board specific defaults */
-      //#define FORCE_ACC_ORIENTATION(X, Y, Z)  {imu.accADC[ROLL]  =  -X; imu.accADC[PITCH]  =  Y; imu.accADC[YAW]  =   -Z;}
-      //#define FORCE_GYRO_ORIENTATION(X, Y, Z) {imu.gyroADC[ROLL] =   X; imu.gyroADC[PITCH] = -Y; imu.gyroADC[YAW] =   -Z;}
-      //#define FORCE_MAG_ORIENTATION(X, Y, Z)  {imu.magADC[ROLL]  =   -X; imu.magADC[PITCH]  =  -Y; imu.magADC[YAW]  = -Z;}
-
       // 200403 BEST WORKING SETTTINGS SO FAR
       #define ACC_ORIENTATION(X, Y, Z) {imu.accADC[ROLL] =  X; imu.accADC[PITCH] =  -Y; imu.accADC[YAW] = -Z;}
       #define GYRO_ORIENTATION(X, Y, Z) {imu.gyroADC[ROLL] = -X; imu.gyroADC[PITCH] = -Y; imu.gyroADC[YAW] = -Z;}
       #define FORCE_MAG_ORIENTATION(X, Y, Z)  {imu.magADC[ROLL]  =   -X; imu.magADC[PITCH]  =  -Y; imu.magADC[YAW]  = -Z;}
 
-//      #define FORCE_ACC_ORIENTATION(X, Y, Z)  {imu.accADC[ROLL]  =  -X; imu.accADC[PITCH]  =  Y; imu.accADC[YAW]  =   -Z;}
-//      #define FORCE_GYRO_ORIENTATION(X, Y, Z) {imu.gyroADC[ROLL] =   X; imu.gyroADC[PITCH] = -Y; imu.gyroADC[YAW] =   -Z;}
-//      #define FORCE_MAG_ORIENTATION(X, Y, Z)  {imu.magADC[ROLL]  =   -X; imu.magADC[PITCH]  =  -Y; imu.magADC[YAW]  = -Z;}
-//      
+
       /* Board orientation shift */
       /* If you have frame designed only for + mode and you cannot rotate FC phisycally for flying in X mode (or vice versa)
        * you can use one of of this options for virtual sensors rotation by 45 deegres, then set type of multicopter according to flight mode.
@@ -696,7 +689,7 @@ At this moment you can use this function only with WinGUI 2.3 release. MultiWiiC
     //#define MTK_BINARY16
     //#define MTK_BINARY19
     //#define INIT_MTK_GPS        // initialize MTK GPS for using selected speed, 5Hz update rate and GGA & RMC sentence or binary settings
-    //#define VENUS8
+
 
     /* I2C GPS device made with an independant arduino + GPS device
        including some navigation functions
@@ -887,33 +880,6 @@ Also note, that maqgnetic declination changes with time, so recheck your value e
     //#define RX_RSSI
     //#define RX_RSSI_PIN A3
     //#define RX_RSSI_CHAN 8   //RSSI injection on selected channel (for PPM, Olrs, SBUS, etc.) (Starts at 0)
-
-  /********************************************************************/
-  /****                             TELEMETRY                      ****/
-  /********************************************************************/
-    // select one of the two protocols depending on your receiver
-    //#define FRSKY_TELEMETRY           // used for FRSKY twoway receivers with telemetry (D-series like D8R-II or D8R-XP) 
-                                      // VBAT, Baro, MAG, GPS and POWERMETER are helpful
-                                      // VBAT_CELLS is optional for a forth screen on the display FLD-02
-    //#define SPORT_TELEMETRY           // for FRSKY twoway receivers with S.PORT telemetry (S-series like X4R/X6R/X8R), not implemented yet - TO BE DONE
-
-    // FRSKY common entries - valid for both protocols
-    #define TELEMETRY_SERIAL 3        // change if required
-
-    // FRSKY standard telemetry specific devices
-    #define FRSKY_FLD02               // send only data specific for the FRSKY display FLD-02
-    //#define OPENTX                    // send OpenTX specific data
-
-    // FRSKY standard telemetry specific selections
-    //#define COORDFORMAT_DECIMALMINUTES // uncomment to get the format DD°MM.mmmm for the coordinates - comment out to get the format DD.dddddd° for the coordinates 
-    //#define KILOMETER_HOUR            // send speed in kilometers per hour instead of knots (default) - requested by OPENTX
-    #define TELEMETRY_ALT_BARO        // send BARO based altitude, calibrated to 0 when arming, recommended if BARO available
-    //#define TELEMETRY_ALT_GPS         // send GPS based altitude (altitude above see level), for FLD-02 don't use together with TELEMETRY_ALT_BARO
-    #define TELEMETRY_COURSE_MAG      // send MAG based course/heading, recommended if MAG available, but FLD-02 does not display
-    //#define TELEMETRY_COURSE_GPS      // send GPS based course/heading, don't use together with TELEMETRY_COURSE_MAG, FLD-02 does not display
-
-    // S.PORT specific entries
-    #define FRSKY_SPORT_A2_MAX 124    // A2 voltage is represented by a value in the range 0-255. A value of 16 results in 1.6V, 124 is 12.4V, etc
 
   /********************************************************************/
   /****                             Buzzer                         ****/

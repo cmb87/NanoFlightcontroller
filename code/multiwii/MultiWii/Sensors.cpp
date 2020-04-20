@@ -1241,7 +1241,7 @@ void ACC_getADC () {
       #if defined(HMC5843)
         MAG_ORIENTATION( ((rawADC[0]<<8) | rawADC[1]) ,
                          ((rawADC[2]<<8) | rawADC[3]) ,
-                         ((rawADC[4]<<8) | rawADC[5]) );                    
+                         ((rawADC[4]<<8) | rawADC[5]) );
       #endif
       #if defined (HMC5883)  
         MAG_ORIENTATION( ((rawADC[0]<<8) | rawADC[1]) ,
@@ -1253,12 +1253,6 @@ void ACC_getADC () {
                          ((rawADC[2]<<8) | rawADC[3]) ,     
                          ((rawADC[4]<<8) | rawADC[5]) );
       #endif
-      #if defined(QMC5883)
-        MAG_ORIENTATION( ((rawADC[1]<<8) | rawADC[0]) ,
-                         ((rawADC[3]<<8) | rawADC[2]) ,
-                         ((rawADC[5]<<8) | rawADC[4]) );
-      #endif
-      
     }
   #endif
 #endif
