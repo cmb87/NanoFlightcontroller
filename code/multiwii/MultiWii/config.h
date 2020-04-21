@@ -526,7 +526,7 @@ At this moment you can use this function only with WinGUI 2.3 release. MultiWiiC
       //#define GYRO_LPF_256HZ     // This is the default setting, no need to uncomment, just for reference
       //#define GYRO_LPF_188HZ
       //#define GYRO_LPF_98HZ
-      //#define GYRO_LPF_42HZ
+      #define GYRO_LPF_42HZ
       //#define GYRO_LPF_20HZ
       //#define GYRO_LPF_10HZ
       //#define GYRO_LPF_5HZ       // Use this only in extreme cases, rather change motors and/or props -- setting not available on ITG3200
@@ -538,8 +538,8 @@ At this moment you can use this function only with WinGUI 2.3 release. MultiWiiC
       //#define GYRO_SMOOTHING {20, 20, 3}    // (*) separate averaging ranges for roll, pitch, yaw
 
     /************************    Moving Average Gyros    **********************************/
-      //#define MMGYRO 10                      // (*) Active Moving Average Function for Gyros
-      //#define MMGYROVECTORLENGTH 15          // Length of Moving Average Vector (maximum value for tunable MMGYRO
+      #define MMGYRO 10                      // (*) Active Moving Average Function for Gyros
+      #define MMGYROVECTORLENGTH 15          // Length of Moving Average Vector (maximum value for tunable MMGYRO
       /* Moving Average ServoGimbal Signal Output */
       //#define MMSERVOGIMBAL                  // Active Output Moving Average Function for Servos Gimbal
       //#define MMSERVOGIMBALVECTORLENGHT 32   // Lenght of Moving Average Vector
