@@ -121,3 +121,12 @@ Inspired by http://www.electronoobs.com
 ## PCB
 Created with Fritzing and Flatcam.
 
+# Issues
+Some issues encountered during the construction phase.
+
+## Vibrations
+Has a very intensive impact on PID controller resulting in twitches and an in general "nervous" behaviour of the quad. In order to mitigate there are three ways:
+
+    1.) Reduce vibrations by accurately balancing propellers
+    2.) Increase damping of the flight controller module
+    3.) In MultiWii: Reduce low pass filter to e.g. 42hz for gyro and activate moving average filter (with default settings). Search for LPF in config.h
